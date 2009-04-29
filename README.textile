@@ -1,0 +1,4 @@
+Run:
+<pre>git clone git@github.com:ltn100/dotfiles.git</pre>
+
+To get local copy
