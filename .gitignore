@@ -1,0 +1,4 @@
+# Ignore vim swap files
+tags
+*~
+*.swp
