@@ -1,0 +1,21 @@
+# Coloured prompt
+if [ $UID -eq "0" ]; then
+    export PS1='\[\e[0;31m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w `if [ $? = 0 ]; then echo -e "\[\e[01;32m\]\$:)"; else echo -e "\[\e[01;31m\]\$:("; fi`\[\e[0m\] '
+else
+    export PS1='\[\e[0;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w `if [ $? = 0 ]; then echo -e "\[\e[01;32m\]\$:)"; else echo -e "\[\e[01;31m\]\$:("; fi`\[\e[0m\] '
+fi
+
+# ls colours
+alias ls="ls --color -Fsh"
+
+# less colours
+alias less="less -R"
+alias lynx='lynx -nocolor'
+
+# highlight grep
+export GREP_OPTIONS="--colour=auto"
+
+# Add user bin to path
+export PATH=~/bin:$PATH
+
+export CVSROOT=:pserver:ltn100@localhost:/cvsroot
