@@ -1,0 +1,8 @@
+# Color of host in prompt
+HOSTCOLOR="${W}"
+
+# Adjustments to path
+#export PATH=~/bin:$PATH
+
+# CVSROOT
+#export CVSROOT=:pserver:user@host:/cvsroot
