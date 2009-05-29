@@ -38,7 +38,6 @@
     HOSTCOLOUR="${C}"
     export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${NONE} ${SMILEY} "
 
-
 # ls colours
 alias ls="ls --color -Fsh"
 
