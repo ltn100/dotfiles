@@ -59,6 +59,9 @@ alias ls="ls --color -Fsh"
 alias less="less -R"
 alias lynx='lynx -nocolor'
 
+# default editor
+export EDITOR=vim
+
 # highlight grep
 export GREP_OPTIONS="--colour=auto"
 
