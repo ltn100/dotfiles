@@ -17,6 +17,9 @@ startup_message off
 # emulate .logout message
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
+
+silencewait           10              # default: 30
+
 # advertise hardstatus support to $TERMCAP
 # termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
 
@@ -127,6 +130,11 @@ bind '}' history
 #some other term, don't remember which
 bindkey "[1;5C" next
 bindkey "[1;5D" prev
+
+# add the following to your .screenrc
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+# from inside your screen, ctrl+a+R ('a' is my escape character) to reload your screenrc
+
 
 
 # Yet another hack:
