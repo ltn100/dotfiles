@@ -73,6 +73,9 @@ export GREP_OPTIONS="--colour=auto"
 # Add user bin to path
 export PATH=~/bin:$PATH
 
+# Toad ssh
+alias tssh="ssh -L 9999:localhost:80 ltn100@toad.dnsalias.com -t 'screen -D -RR'; clear"
+
 # Source private (host-specific) script
 if [ -r ~/.bashrc.private ]
 then
