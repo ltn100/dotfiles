@@ -169,3 +169,4 @@ set wildmenu
 set wildmode=list:longest,full
 
 "let twitvim_login = "ltn100:<pw>"
+filetype plugin indent on
