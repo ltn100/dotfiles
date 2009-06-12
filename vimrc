@@ -91,7 +91,7 @@ set nowrap
 
 
 highlight SpecialKey ctermfg=DarkGray
-set listchars=tab:»-,trail:~
+set listchars=tab:>-,trail:~
 set list
 
 let python_highlight_all=1
