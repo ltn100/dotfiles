@@ -170,3 +170,9 @@ set wildmode=list:longest,full
 
 "let twitvim_login = "ltn100:<pw>"
 filetype plugin indent on
+
+" Hide toolbar
+:set guioptions-=T
+
+" Hide menubar
+":set guioptions-=m

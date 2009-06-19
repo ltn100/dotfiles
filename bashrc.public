@@ -64,6 +64,9 @@ alias ls="ls --color -Fsh"
 alias less="less -R"
 alias lynx='lynx -nocolor'
 
+# Forward X over SSH
+alias ssh="ssh -X -Y"
+
 # default editor
 export EDITOR=vim
 
