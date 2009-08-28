@@ -1,4 +1,8 @@
 " Use Vim settings, rather then Vi settings (much better!).
+"
+" Shotcut command for restoring last session:
+" gvim +bd -c SessionOpenLast
+"
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
