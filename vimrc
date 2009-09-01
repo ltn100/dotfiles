@@ -30,6 +30,35 @@ if &t_Co > 2 || has("gui_running")
   hi statusline   term=NONE cterm=NONE ctermfg=yellow ctermbg=red
 endif
 
+
+" IMPORTANT: Uncomment one of the following lines to force
+" using 256 colors (or 88 colors) if your terminal supports it,
+" but does not automatically use 256 colors by default.
+set t_Co=256
+"set t_Co=88
+"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
+"  \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+"  " Use the guicolorscheme plugin to makes 256-color or 88-color
+"  " terminal use GUI colors rather than cterm colors.
+"  runtime! plugin/guicolorscheme.vim
+"  GuiColorScheme wombat
+"else
+"  " For 8-color 16-color terminals or for gvim, just use the
+"  " regular :colorscheme command.
+"  colorscheme wombat
+"endif
+
+
+if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
+  colorscheme darkburn
+else
+  " For 8-color 16-color terminals or for gvim, just use the
+  " regular :colorscheme command.
+  colorscheme wombat
+endif
+
+
+
 set novisualbell    " turn off visual bell
 set number          " show line numbers
 
@@ -81,8 +110,6 @@ fu! Version()
 	return version
 endf
 
-:set t_Co=256
-:colorscheme wombat
 
 " Default session path
 let g:PathToSessions = $HOME . "/.vim/sessions"
