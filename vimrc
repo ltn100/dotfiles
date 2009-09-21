@@ -7,6 +7,7 @@
 set nocompatible
 
 set tabstop=4       " numbers of spaces of tab character
+"set softtabstop=4   " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent
 set expandtab
 set smartindent     " smart indent
@@ -208,6 +209,7 @@ filetype plugin indent on
 " Hide menubar
 ":set guioptions-=m
 
+"map <C-]> :tjump
 
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
@@ -215,7 +217,8 @@ set tags+=~/.vim/tags/gl
 set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
 " build tags of your own project with CTRL+F12
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!/usr/bin/ctags -R --fields=+ia --extra=+q .; echo "Tags rebuilt"<CR>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1

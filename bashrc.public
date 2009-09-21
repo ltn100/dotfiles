@@ -71,7 +71,7 @@ alias ssh="ssh -X -Y"
 export EDITOR=vim
 
 # highlight grep
-export GREP_OPTIONS="--colour=auto"
+export GREP_OPTIONS="--exclude=tags --exclude=*~ --colour=auto"
 
 # Add user bin to path
 export PATH=~/bin:$PATH
