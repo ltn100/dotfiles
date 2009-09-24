@@ -28,7 +28,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set background=dark
-  hi statusline   term=NONE cterm=NONE ctermfg=yellow ctermbg=red
+  "hi statusline   term=NONE cterm=NONE ctermfg=yellow ctermbg=red
 endif
 
 
@@ -37,26 +37,9 @@ endif
 " but does not automatically use 256 colors by default.
 set t_Co=256
 "set t_Co=88
-"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-"  \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-"  " Use the guicolorscheme plugin to makes 256-color or 88-color
-"  " terminal use GUI colors rather than cterm colors.
-"  runtime! plugin/guicolorscheme.vim
-"  GuiColorScheme wombat
-"else
-"  " For 8-color 16-color terminals or for gvim, just use the
-"  " regular :colorscheme command.
-"  colorscheme wombat
-"endif
 
-
-if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
-  colorscheme darkburn
-else
-  " For 8-color 16-color terminals or for gvim, just use the
-  " regular :colorscheme command.
-  colorscheme wombat
-endif
+" Colour scheme
+colorscheme wombat
 
 
 
@@ -175,10 +158,8 @@ map <F4> :call Toggle_showmarks_()<CR>:sleep 50m <bar> echo 'showmarks ' . (g:sh
 
 map <F3> :BufExplorer<CR>
 
+" Show cursor line
 :se cursorline
-:hi CursorLine term=none cterm=none guibg=#2a2a2a
-:autocmd InsertLeave * hi CursorLine term=none cterm=none guibg=#2a2a2a
-:autocmd InsertEnter * hi CursorLine term=none cterm=none guibg=#3a2a2a
 
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winpos,winsize
 
