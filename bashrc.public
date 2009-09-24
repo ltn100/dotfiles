@@ -36,7 +36,7 @@ function prompt {
     # Set default host colour
     : ${_HOSTCOLOUR:=W}
 
-    if [[ $_HOSTCOLOUR =~ "[0-9]*" ]]
+    if [[ $_HOSTCOLOUR =~ [0-9]* ]]
     then
         # 256 color mode
         HOSTCOLOUR="\[\033[38;5;${_HOSTCOLOUR}m\]"
