@@ -35,8 +35,15 @@ function prompt {
 
     # Set default host colour
     : ${_HOSTCOLOUR:=W}
-    # Dereference host colour
-    local HOSTCOLOUR=${!_HOSTCOLOUR}
+
+    if [[ $_HOSTCOLOUR =~ "[0-9]*" ]]
+    then
+        # 256 color mode
+        HOSTCOLOUR="\[\033[38;5;${_HOSTCOLOUR}m\]"
+    else
+        # Dereference host colour
+        local HOSTCOLOUR=${!_HOSTCOLOUR}
+    fi
 
 
     # Macros to retain error code in PS1
