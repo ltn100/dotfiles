@@ -56,8 +56,11 @@ function prompt {
     # Smiley (escaped because substitution happens on the fly))
     local SMILEY="\$(if [ \$? = 0 ]; then echo \"${EMG}\\\$:)\"; else echo \"${EMR}\\\$:(\"; fi)${NONE}"
 
+    # Hook for GNU screen
+    local SCRNHK="\[\033k\033\\\\\]"
+
     # Create final PS1
-    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${NONE} ${SMILEY} "
+    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${NONE} ${SMILEY}${SCRNHK} "
 }
 
 

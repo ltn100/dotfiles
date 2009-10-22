@@ -223,3 +223,6 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 defbce "on"
 
 #idle 420 eval "screen cmatrix -f -o -s -u 10"
+
+# Change the shell title to the command running
+shelltitle ":) |bash"
