@@ -73,13 +73,19 @@ termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 termcapinfo xterm 'vi=\E[?25l:ve=\E[34h\E[?25h:vs=\E[34l'
 
 # emulate part of the 'K' charset
-termcapinfo   xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 
 # xterm-52 tweaks:
 # - uses background color for delete operations
 termcapinfo xterm* be
 
-termcapinfo xterm|xterms|xs ti=\E7\E[?47l 
+# Do not use xterm's alternative window buffer, it breaks scrollback (see bug #61195)
+#termcapinfo xterm|xterms|xs 'ti=\E7\E[?47l'
+
+# Use terminal scroll bar
+#termcapinfo xterm* ti@:te@
+
+
 ################
 #
 # wyse terminals
@@ -203,9 +209,28 @@ msgwait 2
 #change the hardstatus settings to give an window list at the bottom of the                                                                        
 #screen, with the time and date and with the current window highlighted                                                                            
 hardstatus on
-hardstatus alwayslastline  
-hardstatus string '%{gk}[%{= kG} %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
-#hardstatus string '[38;5;235m%{g}[ %{G}%H %{g}][%= %?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}][0m'
+hardstatus alwayslastline
+
+
+# Build hardstatus string
+setenv HOSTNAME "%{.k}%{g}[%{G} %{G}%H %{g}]"
+setenv LEFT_WINDOWS "%{w}%?%-Lw%?"
+setenv CENTRE_WINDOW "%{r}(%{W}%n*%f%t%?(%u)%?%{r})"
+setenv RIGHT_WINDOWS "%{w}%?%+Lw%?"
+setenv WINDOW_LIST "[%=${LEFT_WINDOWS}${CENTRE_WINDOW}${RIGHT_WINDOWS}%=%{g}]"
+setenv TIMEDATE "[%{B} %d/%m %{W}%c %{g}]"
+
+hardstatus string "${HOSTNAME}${WINDOW_LIST}${TIMEDATE}"
+
+unsetenv HOSTNAME
+unsetenv LEFT_WINDOWS
+unsetenv CENTRE_WINDOW
+unsetenv RIGHT_WINDOWS
+unsetenv WINDOW_LIST
+unsetenv TIMEDATE
+
+#caption always "%{-b bc}%c|%D|%M %d|%H%{+u wb} %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
+#hardstatus string '[35;235m%{g}[ %{G}%H %{g}][%= %?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}][0m'
 altscreen on
 
 # Enable 256-color mode when screen is started with TERM=xterm-256color
