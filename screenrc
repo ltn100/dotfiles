@@ -41,6 +41,9 @@ defscrollback 1000
 # enable support for the "alternate screen" capability in all windows
 # altscreen on
 
+# Always start from home directory
+chdir
+
 ################
 #
 # xterm tweaks
@@ -127,6 +130,10 @@ bind ^\
 bind \\
 bind ^h
 bind h
+bind s
+bind ^s
+
+
 #make them better
 bind 'K' kill
 bind 'I' login on
@@ -142,6 +149,12 @@ bindkey "[1;5B" resize +1
 
 bindkey "[6;5~" focus up
 bindkey "[5;5~" focus down
+
+# Split/restore on F5/F6
+bindkey -k k5 split
+bindkey -k k6 only
+
+
 
 # add the following to your .screenrc
 bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
@@ -208,26 +221,28 @@ msgwait 2
 
 #change the hardstatus settings to give an window list at the bottom of the                                                                        
 #screen, with the time and date and with the current window highlighted                                                                            
-hardstatus on
-hardstatus alwayslastline
+#hardstatus on
+#hardstatus alwayslastline
 
 
 # Build hardstatus string
-setenv HOSTNAME "%{.k}%{g}[%{G} %{G}%H %{g}]"
-setenv LEFT_WINDOWS "%{w}%?%-Lw%?"
-setenv CENTRE_WINDOW "%{r}(%{W}%n*%f%t%?(%u)%?%{r})"
-setenv RIGHT_WINDOWS "%{w}%?%+Lw%?"
-setenv WINDOW_LIST "[%=${LEFT_WINDOWS}${CENTRE_WINDOW}${RIGHT_WINDOWS}%=%{g}]"
-setenv TIMEDATE "[%{B} %d/%m %{W}%c %{g}]"
+setenv SC_HOSTNAME "%{.k}%{g}[%{G} %{G}%H %{g}]"
+setenv SC_LEFT_WINDOWS "%{w}%?%-Lw%?"
+setenv SC_CENTRE_WINDOW "%{r}(%{W}%n*%f%t%?(%u)%?%{r})"
+setenv SC_RIGHT_WINDOWS "%{w}%?%+Lw%?"
+setenv SC_WINDOW_LIST "[%=${SC_LEFT_WINDOWS}${SC_CENTRE_WINDOW}${SC_RIGHT_WINDOWS}%=%{g}]"
+setenv SC_TIMEDATE "[%{B} %d/%m %{W}%c %{g}]"
 
-hardstatus string "${HOSTNAME}${WINDOW_LIST}${TIMEDATE}"
+#hardstatus string "${SC_HOSTNAME}${SC_WINDOW_LIST}${SC_TIMEDATE}"
+caption always
+caption string "${SC_HOSTNAME}${SC_WINDOW_LIST}${SC_TIMEDATE}"
 
-unsetenv HOSTNAME
-unsetenv LEFT_WINDOWS
-unsetenv CENTRE_WINDOW
-unsetenv RIGHT_WINDOWS
-unsetenv WINDOW_LIST
-unsetenv TIMEDATE
+unsetenv SC_HOSTNAME
+unsetenv SC_LEFT_WINDOWS
+unsetenv SC_CENTRE_WINDOW
+unsetenv SC_RIGHT_WINDOWS
+unsetenv SC_WINDOW_LIST
+unsetenv SC_TIMEDATE
 
 #caption always "%{-b bc}%c|%D|%M %d|%H%{+u wb} %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
 #hardstatus string '[35;235m%{g}[ %{G}%H %{g}][%= %?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}][0m'
