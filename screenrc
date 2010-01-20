@@ -83,7 +83,7 @@ termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 termcapinfo xterm* be
 
 # Do not use xterm's alternative window buffer, it breaks scrollback (see bug #61195)
-#termcapinfo xterm|xterms|xs 'ti=\E7\E[?47l'
+termcapinfo xterm|xterms|xs 'ti=\E7\E[?47l'
 
 # Use terminal scroll bar
 #termcapinfo xterm* ti@:te@
@@ -143,6 +143,8 @@ bind '}' history
 #some other term, don't remember which
 bindkey "[1;5C" next
 bindkey "[1;5D" prev
+bindkey "[C" next
+bindkey "[D" prev
 
 bindkey "[1;5A" resize -1
 bindkey "[1;5B" resize +1
