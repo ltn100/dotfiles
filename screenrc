@@ -233,7 +233,7 @@ setenv SC_LEFT_WINDOWS "%{w}%?%-Lw%?"
 setenv SC_CENTRE_WINDOW "%{r}(%{W}%n*%f%t%?(%u)%?%{r})"
 setenv SC_RIGHT_WINDOWS "%{w}%?%+Lw%?"
 setenv SC_WINDOW_LIST "[%=${SC_LEFT_WINDOWS}${SC_CENTRE_WINDOW}${SC_RIGHT_WINDOWS}%=%{g}]"
-setenv SC_TIMEDATE "[%{B} %d/%m %{W}%c %{g}]"
+setenv SC_TIMEDATE "[%{B} %d/%m/%Y %{W}%c %{g}]"
 
 #hardstatus string "${SC_HOSTNAME}${SC_WINDOW_LIST}${SC_TIMEDATE}"
 caption always
