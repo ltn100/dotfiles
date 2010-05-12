@@ -143,8 +143,8 @@ bind '}' history
 #some other term, don't remember which
 bindkey "[1;5C" next
 bindkey "[1;5D" prev
-bindkey "[C" next
-bindkey "[D" prev
+bindkey "[C" next # for putty
+bindkey "[D" prev # for putty
 
 bindkey "[1;5A" resize -1
 bindkey "[1;5B" resize +1
