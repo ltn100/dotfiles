@@ -67,7 +67,7 @@ $(DOT_CP_FILES): $(CP_FILES) Makefile
 #     the file.
 #
 .PHONY: install
-install: $(DOT_LNK_FILES) $(DOT_CP_FILES) bashrc
+install: all bashrc
 	install -m 644 --backup=numbered $(DOT_CP_FILES) $(DEST_DIR)
 	@for dotfile in $(DOT_LNK_FILES); do \
 		echo "Installing $${dotfile}"; \
