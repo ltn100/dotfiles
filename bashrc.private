@@ -14,6 +14,8 @@ prompt
 # Aliases
 #alias lynx='lynx -nocolor'
 
+# Server ssh
+#alias tssh="ssh -L 9999:localhost:80 user@server.com -t 'screen -D -RR'; clear"
 
 tty -s; ISHELL=$?
 if [ $ISHELL ]

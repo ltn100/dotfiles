@@ -70,8 +70,7 @@ function prompt {
     export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${NONE} ${SMILEY}${SCRNHK} "
 }
 
-
-#export PS1='\[\e[1;30m\]\! \[\e[0;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\w\[\e[0m\] `if [ $? = 0 ]; then echo -e "\[\e[01;32m\]\$:)"; else echo -e "\[\e[01;31m\]\$:("; fi`\[\e[0m\] '
+# Update prompt (will probably be called again in .bashrc.private)
 prompt
 
 # ls colours
@@ -79,7 +78,6 @@ alias ls="ls --color -Fsh"
 
 # less colours
 alias less="less -R"
-alias lynx='lynx -nocolor'
 
 # Forward X over SSH
 alias ssh="ssh -X -Y"
@@ -93,8 +91,6 @@ export GREP_OPTIONS="--exclude=tags --exclude=*~ --colour=auto"
 # Add user bin to path
 export PATH=~/bin:$PATH
 
-# Toad ssh
-alias tssh="ssh -L 9999:localhost:80 ltn100@toad.dnsalias.com -t 'screen -D -RR'; clear"
 
 # Source private (host-specific) script
 if [ -r ~/.bashrc.private ]
