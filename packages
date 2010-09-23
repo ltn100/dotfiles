@@ -1,0 +1,36 @@
+#############################################################################################
+#   Ubuntu Packages to be installed                                                         #
+#   -------------------------------                                                         #
+#   Get a list of manually installed packages with:                                         #
+#    aptitude search '!~pstandard!~pimportant!~prequired!~t^desktop$!~tkde-desktop !~M~i'   #
+#############################################################################################
+
+# Build tools
+build-essential   # Should install everyting needed to compile stuff
+
+# Progs
+bzip2
+cdargs
+cvs
+dosfstools
+git-core
+git-cvs
+htop
+iftop
+iptraf
+irssi
+lynx
+mc
+ncftp
+netcat
+nmap
+screen
+subversion
+tree
+unrar
+vim
+vim-runtime
+zip
+
+# Services
+openssh-server

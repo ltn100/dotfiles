@@ -43,6 +43,12 @@ DOT_CP_FILES  = $(addprefix .,$(CP_FILES))
 DEST_DIR = ${HOME}
 SOURCE_DIR = ${PWD}
 
+# Packages file
+PACKAGES_FILE = packages
+
+# Some sed commands
+SED_REMOVE_COMMENTS = s/\([^\#]*\).*/\1/
+SED_TRUNCATE_SPACES = s/[[:space:]][[:space:]]*/ /g
 
 ########################## Rules #################################
 
@@ -80,7 +86,6 @@ install: all bashrc
 	done
 
 
-
 # Add entry to ~/.bashrc
 #
 .PHONY: bashrc
@@ -90,6 +95,18 @@ bashrc: bashrc.include Makefile
 	else \
 		cat bashrc.include >> $(HOME)/.bashrc; \
 		echo "Bash profile source added."; \
+	fi
+
+
+# Install debian packages listed in 'packages' file
+#
+.PHONY: install-packages
+install-packages: $(PACKAGES_FILE) Makefile
+	@packages="$(shell sed '$(SED_REMOVE_COMMENTS)' $(PACKAGES_FILE))"; \
+	if [ "x$${packages}" != "x" ]; then \
+		echo "Installing packages:" ; \
+		echo $${packages}; \
+		apt-get install $${packages}; \
 	fi
 
 
