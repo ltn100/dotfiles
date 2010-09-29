@@ -146,11 +146,13 @@ bindkey "[1;5D" prev
 bindkey "[C" next # for putty
 bindkey "[D" prev # for putty
 
-bindkey "[1;5A" resize -1
-bindkey "[1;5B" resize +1
+bindkey "[1;5A" focus up
+bindkey "[1;5B" focus down
+bindkey "[A" focus up   # for putty
+bindkey "[B" focus down # for putty
 
-bindkey "[6;5~" focus up
-bindkey "[5;5~" focus down
+bindkey "[6;5~" resize -1
+bindkey "[5;5~" resize +1
 
 # Split/restore on F5/F6
 bindkey -k k5 split
