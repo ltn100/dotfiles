@@ -45,6 +45,8 @@ function prompt {
         local HOSTCOLOUR=${!_HOSTCOLOUR}
     fi
 
+    # Detect symbolic link
+    local SYMLINK="\$(if [ ! \"\$(pwd)\" == \"\$(readlink -f .)\" ]; then echo \" ${EMC}(!)\"; fi)"
 
     # Macros to retain error code in PS1
     local ERROR_PRE="ERROR=\$?"
@@ -66,8 +68,11 @@ function prompt {
         ;;
     esac
 
+    #local git_ref=$(git-symbolic-ref HEAD 2> /dev/null) || git_ref=""
+    GIT_BRANCH='$(git branch 2>/dev/null | grep -e ^* | cut -d" " -f2)'
+
     # Create final PS1
-    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${NONE} ${SMILEY}${SCRNHK} "
+    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${SYMLINK}${NONE} ${SMILEY}${SCRNHK} "
 }
 
 # Update prompt (will probably be called again in .bashrc.private)
