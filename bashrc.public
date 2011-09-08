@@ -96,6 +96,13 @@ export GREP_OPTIONS="--exclude=tags --exclude=*~ --colour=auto"
 # Add user bin to path
 export PATH=~/bin:$PATH
 
+# Add time to history
+export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
+
+# Bash history search
+bind '"\e[1;5A": history-search-backward'
+bind '"\e[1;5B": history-search-forward'
+
 
 # Source private (host-specific) script
 if [ -r ~/.bashrc.private ]
