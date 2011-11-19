@@ -87,6 +87,9 @@ alias less="less -R"
 # Forward X over SSH
 alias ssh="ssh -X -Y"
 
+# Fix issue with screen not working after su
+alias su="su -l -c 'script -q /dev/null'"
+
 # default editor
 export EDITOR=vim
 
