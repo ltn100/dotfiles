@@ -45,12 +45,12 @@ function prompt {
         local HOSTCOLOUR=${!_HOSTCOLOUR}
     fi
 
-    # Detect symbolic link
-    local SYMLINK="\$(if [ ! \"\$(pwd)\" == \"\$(readlink -f .)\" ]; then echo \" ${EMC}(!)\"; fi)"
-
     # Macros to retain error code in PS1
     local ERROR_PRE="ERROR=\$?"
     local ERROR_POST="if [ \$ERROR = 0 ]; then true; else false; fi"
+
+    # Detect symbolic link
+    local SYMLINK="\$(${ERROR_PRE}; if [ ! \"\$(pwd)\" == \"\$(readlink -f .)\" ]; then echo \" ${EMC}(!)\"; fi; ${ERROR_POST})"
 
     # Username with color
     local USER="\$(${ERROR_PRE}; if [ \$UID = 0 ]; then echo \"${R}\"; else echo \"${G}\"; fi; ${ERROR_POST})\u${NONE}"
