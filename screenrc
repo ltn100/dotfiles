@@ -240,7 +240,7 @@ setenv SC_TIMEDATE "[%{B} %d/%m/%Y %{W}%c %{g}]"
 #hardstatus string "${SC_HOSTNAME}${SC_WINDOW_LIST}${SC_TIMEDATE}"
 caption always
 caption string "${SC_HOSTNAME}${SC_WINDOW_LIST}${SC_TIMEDATE}"
-backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*" | sed "s/[0-9]\+\.//"'
 
 unsetenv SC_HOSTNAME
 unsetenv SC_LEFT_WINDOWS
