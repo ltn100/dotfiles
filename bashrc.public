@@ -84,6 +84,9 @@ alias ls="ls --color -Fsh"
 # less colours
 alias less="less -R"
 
+# 256 colour tmux
+alias tmux="tmux -2"
+
 # Forward X over SSH
 alias ssh="ssh -X -Y"
 
