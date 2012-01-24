@@ -174,6 +174,7 @@ let g:EnhCommentifyTraditionalMode = 'no'
 let g:EnhCommentifyFirstLineMode = 'no'
 let g:EnhCommentifyUserBindings = 'no'
 let g:EnhCommentifyUserMode = 'yes'
+let g:EnhCommentifyRespectIndent = 'yes'
 
 
 autocmd FileType python setlocal omnifunc=pysmell#Complete
