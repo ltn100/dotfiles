@@ -37,6 +37,7 @@ hi Folded       guibg=#384048 guifg=#a0a8b0 gui=NONE    ctermfg=237  ctermbg=248
 hi Title        guifg=#f6f3e8 guibg=NONE    gui=bold    ctermfg=230  ctermbg=NONE   cterm=NONE
 hi Visual       guifg=#f6f3e8 guibg=#444444 gui=NONE    ctermfg=230  ctermbg=238    cterm=NONE
 hi SpecialKey   guifg=#808080 guibg=#343434 gui=NONE    ctermfg=244  ctermbg=235    cterm=NONE
+hi Search       guibg=#ffff00 ctermbg=184
 
 " Syntax highlighting
 hi Comment      guifg=#99968b gui=italic    ctermfg=242     cterm=NONE

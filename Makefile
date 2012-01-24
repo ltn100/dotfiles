@@ -26,6 +26,7 @@ LNK_FILES += vim
 LNK_FILES += vimoutliner
 LNK_FILES += vimoutlinerrc
 LNK_FILES += screenrc
+LNK_FILES += tmux.conf
 LNK_FILES += bashrc.public
 LNK_FILES += gitconfig
 LNK_FILES += rtorrent.rc
