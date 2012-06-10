@@ -11,26 +11,31 @@
 #max_peers_seed = 50
 
 # Maximum number of simultanious uploads per torrent.
-max_uploads = 15
+throttle.max_uploads.set = 15
 
 #connection_leech = seed
 
 # Global upload and download rate in KiB. "0" for unlimited.
-download_rate = 0
-upload_rate = 30
+throttle.global_down.max_rate.set_kb = 0
+throttle.global_up.max_rate.set_kb = 30
+
+#network.send_buffer.size.set = 8192
+#network.receive_buffer.size.set = 16384
+network.send_buffer.size.set = 4096
+network.receive_buffer.size.set = 4096
 
 # Default directory to save the downloaded torrents.
-directory = /home/ltn100/downloads
+directory.default.set = /home/ltn100/rtorrent/Downloads
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = /home/ltn100/rtorrent/Session
+session.path.set = /home/ltn100/rtorrent/Session
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
 
-schedule = watch_directory,10,10,load_start=/home/ltn100/rtorrent/Torrents/*.torrent
+schedule = watch_directory,10,10,load.start=/home/ltn100/rtorrent/Torrents/*.torrent
 schedule = tied_directory,10,10,start_tied=/home/ltn100/rtorrent/Torrents/*.torrent
 schedule = untied_directory,10,10,close_untied=/home/ltn100/rtorrent/Torrents/*.torrent
 
@@ -53,14 +58,14 @@ schedule = untied_directory,10,10,close_untied=/home/ltn100/rtorrent/Torrents/*.
 #bind = rakshasa.no
 
 # Port range to use for listening.
-port_range = 27003-27003
+network.port_range.set = 27003-27003
 
 # Start opening ports at a random position within the port range.
 #port_random = no
 
 # Check hash for finished torrents. Might be usefull until the bug is
 # fixed that causes lack of diskspace not to be properly reported.
-check_hash = yes
+pieces.hash.on_completion.set = yes
 
 # Set whetever the client should try to connect to UDP trackers.
 #use_udp_trackers = yes
@@ -76,7 +81,7 @@ check_hash = yes
 # outgoing connections but retries with encryption if they fail, preferring
 # plaintext to RC4 encryption after the encrypted handshake
 #
-encryption = allow_incoming,try_outgoing,enable_retry
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
 #
 # Do not modify the following parameters unless you know what you're doing.
@@ -97,7 +102,7 @@ encryption = allow_incoming,try_outgoing,enable_retry
 #hash_max_tries = 10
 
 # Max number of files to keep open simultaniously.
-#max_open_files = 128
+network.max_open_files.set = 1024
 
 # Number of sockets to simultaneously keep open.
 #max_open_sockets = <no default>
@@ -114,3 +119,7 @@ schedule = throttle_1,23:05:00,24:00:00,download_rate=0
 schedule = throttle_2,08:55:00,24:00:00,download_rate=5
 schedule = throttle_3,23:05:00,24:00:00,upload_rate=30
 schedule = throttle_4,08:55:00,24:00:00,upload_rate=2
+
+
+#pieces.memory.max.set = 64000000
+
