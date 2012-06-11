@@ -90,6 +90,9 @@ alias tmux="tmux -2"
 # Forward X over SSH
 alias ssh="ssh -X -Y"
 
+# Nice function
+alias benice="nice -n20 ionice -c3"
+
 # Fix issue with screen not working after su
 alias su="su -l -c 'script -q /dev/null'"
 
