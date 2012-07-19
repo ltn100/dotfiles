@@ -122,6 +122,10 @@ termcapinfo linux C8
 # keybindings
 #
 
+# It's sometimes useful to have a quote key.
+bind e mapdefault
+bind ^E mapdefault
+
 #remove some stupid / dangerous key bindings
 bind k
 bind ^k
