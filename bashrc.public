@@ -96,6 +96,10 @@ alias benice="nice -n20 ionice -c3"
 # Fix issue with screen not working after su
 alias su="su -l -c 'script -q /dev/null'"
 
+# Todo.txt
+alias t="todo.sh -d ~/.todo.cfg"
+complete -F _todo t
+
 # default editor
 export EDITOR=vim
 
@@ -103,7 +107,7 @@ export EDITOR=vim
 export GREP_OPTIONS="--exclude=tags --exclude=*~ --colour=auto"
 
 # Add user bin to path
-export PATH=~/bin:$PATH
+export PATH=~/.bin:$PATH
 
 # Add time to history
 export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
