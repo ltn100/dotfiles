@@ -76,8 +76,7 @@ $(DOT_CP_FILES): $(CP_FILES) Makefile
 #     the file.
 #
 .PHONY: install
-install: all bashrc
-	install -m 644 --backup=numbered $(DOT_CP_FILES) $(DEST_DIR)
+install: all bashrc $(DEST_DIR)/$(DOT_CP_FILES)
 	@for dotfile in $(DOT_LNK_FILES); do \
 		echo "Installing $${dotfile}"; \
 		if [ -f $(DEST_DIR)/$${dotfile} -a ! -L $(DEST_DIR)/$${dotfile} ]; then \
@@ -88,6 +87,12 @@ install: all bashrc
 		fi ; \
 	done
 
+$(DEST_DIR)/$(DOT_CP_FILES): $(DOT_CP_FILES)
+	@if [ -f $(DEST_DIR)/$(DOT_CP_FILES) ]; then \
+		echo "Private bash profile already exists."; \
+	else \
+		install -m 644 --backup=numbered $(DOT_CP_FILES) $(DEST_DIR); \
+	fi
 
 # Add entry to ~/.bashrc
 #

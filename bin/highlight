@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# = 0 ]
+then
+	echo "Usage: command | highlight term1 <term2 term3...>"
+	echo "..or.."
+	echo "Usage: highlight filename term1 <term2 term3...>"
+	exit 1
+fi
+
+c=1
+for pat in "$@"
+do
+	rep="`echo $pat | sed 's/\//\\\\\//g'`"
+  	sedpat='s/'$rep'/[3'$c'm'$rep'[0m/g;'$sedpat
+  	if (( c++ == 6 )); then c=1; fi
+done
+
+if [ -s "$1" ]
+then
+	sed $sedpat < $1
+else
+	sed $sedpat
+fi
