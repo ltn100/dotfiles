@@ -32,7 +32,7 @@ LNK_FILES += gitconfig
 LNK_FILES += rtorrent.rc
 LNK_FILES += irssi
 LNK_FILES += snownews
-LNK_FILES += todo.cfg
+LNK_FILES += todo
 LNK_FILES += bin
 
 # Files to copy

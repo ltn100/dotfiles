@@ -97,7 +97,7 @@ alias benice="nice -n20 ionice -c3"
 alias su="su -l -c 'script -q /dev/null'"
 
 # Todo.txt
-alias t="todo.sh -d ~/.todo.cfg"
+alias t="todo.sh"
 complete -F _todo t
 
 # default editor

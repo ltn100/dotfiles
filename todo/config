@@ -8,6 +8,7 @@ export TODO_DIR="$HOME/Dropbox/todo"
 export TODO_FILE="$TODO_DIR/todo.txt"
 export DONE_FILE="$TODO_DIR/done.txt"
 export REPORT_FILE="$TODO_DIR/report.txt"
+export TMP_FILE="$TODO_DIR/todo.tmp"
 
 # You can customize your actions directory location
 #export TODO_ACTIONS_DIR="$HOME/.todo.actions.d"
@@ -77,3 +78,4 @@ export REPORT_FILE="$TODO_DIR/report.txt"
 # just before the list output is displayed.
 #
 # export TODOTXT_FINAL_FILTER='cat'
+export TODOTXT_DEFAULT_ACTION='ls'
