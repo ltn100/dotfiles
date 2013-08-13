@@ -64,7 +64,7 @@ all : $(DOT_LNK_FILES) $(DOT_CP_FILES)
 # Dotfile creation rules
 #
 $(DOT_LNK_FILES): $(LNK_FILES) Makefile
-	ln -sf $(SOURCE_DIR)/$(patsubst .%,%,$(@)) $(SOURCE_DIR)/$(@)
+	ln -sfT $(SOURCE_DIR)/$(patsubst .%,%,$(@)) $(SOURCE_DIR)/$(@)
 
 $(DOT_CP_FILES): $(CP_FILES) Makefile
 	cp -f $(SOURCE_DIR)/$(patsubst .%,%,$(@)) $(SOURCE_DIR)/$(@)
