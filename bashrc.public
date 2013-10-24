@@ -50,7 +50,7 @@ function prompt {
     local ERROR_POST="if [ \$ERROR = 0 ]; then true; else false; fi"
 
     # Detect symbolic link
-    local SYMLINK="\$(${ERROR_PRE}; if [ ! \"\$(pwd)\" == \"\$(readlink -f .)\" ]; then echo \" ${EMC}(!)\"; fi; ${ERROR_POST})"
+    local SYMLINK="\$(${ERROR_PRE}; if [ ! \"\$(pwd)\" == \"\$(readlink -f .)\" ]; then echo \" ${EMC}(!)${NONE}\"; fi; ${ERROR_POST})"
 
     # Username with color
     local USER="\$(${ERROR_PRE}; if [ \$UID = 0 ]; then echo \"${R}\"; else echo \"${G}\"; fi; ${ERROR_POST})\u${NONE}"
@@ -68,11 +68,13 @@ function prompt {
         ;;
     esac
 
-    #local git_ref=$(git-symbolic-ref HEAD 2> /dev/null) || git_ref=""
-    GIT_BRANCH='$(git branch 2>/dev/null | grep -e ^* | cut -d" " -f2)'
+    local GIT_BRANCH="\$(${ERROR_PRE}; if git branch 1>/dev/null 2>&1; then echo \" ${Y}(\$(git branch 2>/dev/null | grep -e ^* | cut -d\" \" -f2))${NONE}\"; fi; ${ERROR_POST})"
+
+    local SVN_BRANCH="\$(${ERROR_PRE}; if svn info 1>/dev/null 2>&1; then echo \" ${Y}(\$(svn info 2>/dev/null | fgrep \"URL\" | egrep -o \"trunk|branches/[^/]*|tags/[^/]*\"))${NONE}\"; fi; ${ERROR_POST})"
+
 
     # Create final PS1
-    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${SYMLINK}${NONE} ${SMILEY}${SCRNHK} "
+    export PS1="${USER}@${HOSTCOLOUR}\h${NONE} ${EMB}\w${SYMLINK}${NONE}${GIT_BRANCH}${SVN_BRANCH}\n${SMILEY}${SCRNHK} "
 }
 
 # Update prompt (will probably be called again in .bashrc.private)
