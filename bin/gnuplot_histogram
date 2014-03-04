@@ -1,0 +1,17 @@
+#!/bin/bash
+
+binwidth=$1
+
+if [ "x$binwidth" == "x" ]
+then
+    binwidth=5
+fi
+echo "Using binwidth $binwidth"
+
+if [ "x$2" != "x" ]
+then
+    extraopts="${extaopts}set term png; set output \"$2\"; "
+fi
+
+
+cat /dev/stdin | gnuplot -p -e "${extraopts}"'binwidth='"${binwidth}"'; bin(x,width)=width*floor(x/width)+binwidth/2.0; set style fill solid 1.0; unset key; set yrange [0:*]; set boxwidth binwidth; plot '"'-'"' using (bin($1,binwidth)):(1.0) smooth freq with boxes'
