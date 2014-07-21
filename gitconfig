@@ -32,6 +32,7 @@
 
 [alias]
         co = checkout
+        lg = log --graph --pretty=format:\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit
 [giggle]
 	compact-mode = false
 	main-window-maximized = true
