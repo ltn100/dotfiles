@@ -70,7 +70,7 @@ function prompt {
 
     local GIT_BRANCH="\$(${ERROR_PRE}; if git branch 1>/dev/null 2>&1; then echo \" ${Y}(\$(git branch 2>/dev/null | grep -e ^* | cut -d\" \" -f2))${NONE}\"; fi; ${ERROR_POST})"
 
-    local SVN_BRANCH="\$(${ERROR_PRE}; if svn info 1>/dev/null 2>&1; then echo \" ${Y}(\$(svn info 2>/dev/null | fgrep \"URL\" | egrep -o \"trunk|branches/[^/]*|tags/[^/]*\"))${NONE}\"; fi; ${ERROR_POST})"
+    local SVN_BRANCH="\$(${ERROR_PRE}; if svn info 1>/dev/null 2>&1; then if [ \"\$(svn status -q --no-ignore)\" == \"\" ]; then echo -n \" ${Y}\"; else echo -n \" ${R}\"; fi; echo \"(\$(svn info 2>/dev/null | fgrep \"URL\" | egrep -o \"trunk|branches/[^/]*|tags/[^/]*\"))${NONE}\"; fi; ${ERROR_POST})"
 
 
     # Create final PS1
@@ -113,6 +113,9 @@ export PATH=~/.bin:$PATH
 
 # Add time to history
 export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
+
+# HSTR config
+export HH_CONFIG=hicolor,rawhistory
 
 # Bash history search
 bind '"\e[1;5A": history-search-backward'

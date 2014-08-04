@@ -6,6 +6,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set showtabline=2
+
 set tabstop=4       " numbers of spaces of tab character
 "set softtabstop=4   " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent

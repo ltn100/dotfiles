@@ -20,6 +20,10 @@ if version >= 700
   hi Pmenu          guifg=#f6f3e8 guibg=#444444 ctermfg=230 ctermbg=238
   hi PmenuSel       guifg=#000000 guibg=#cae682 ctermfg=0   ctermbg=150
 
+  hi TabLineFill    ctermbg=236   cterm=NONE
+  hi TabLine        ctermfg=240  ctermbg=235   cterm=NONE
+  hi TabLineSel     ctermfg=229  ctermbg=NONE   cterm=bold
+
   " Change cursor line in INSERT mode
   autocmd InsertLeave * hi CursorLine term=NONE cterm=NONE guibg=#2a2a2a ctermbg=235
   autocmd InsertEnter * hi CursorLine term=NONE cterm=NONE guibg=#3a2a2a ctermbg=236
