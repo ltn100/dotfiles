@@ -22,7 +22,7 @@ if version >= 700
 
   hi TabLineFill    ctermbg=236   cterm=NONE
   hi TabLine        ctermfg=240  ctermbg=235   cterm=NONE
-  hi TabLineSel     ctermfg=229  ctermbg=NONE   cterm=bold
+  hi TabLineSel     ctermfg=229  ctermbg=NONE   cterm=underline
 
   " Change cursor line in INSERT mode
   autocmd InsertLeave * hi CursorLine term=NONE cterm=NONE guibg=#2a2a2a ctermbg=235
