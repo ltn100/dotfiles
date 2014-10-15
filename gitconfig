@@ -1,6 +1,6 @@
 [user]
-    name = ltn100
-    email = ltn100@gmail.com
+    name = Lee Netherton
+    email = "(none)"
 
 [color]
         diff = auto
@@ -33,9 +33,11 @@
 [alias]
         co = checkout
         lg = log --graph --pretty=format:\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit
+
 [giggle]
-	compact-mode = false
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
+        compact-mode = false
+        main-window-maximized = true
+        main-window-geometry = 0x0+0+0
+
 [push]
-	default = simple
+        default = simple
