@@ -117,6 +117,11 @@ export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
 # HSTR config
 export HH_CONFIG=hicolor,rawhistory
 
+# aws completion
+if [ -f /usr/bin/aws_completer ]; then
+    complete -C /usr/bin/aws_completer aws
+fi
+
 # Bash history search
 bind '"\e[1;5A": history-search-backward'
 bind '"\e[1;5B": history-search-forward'

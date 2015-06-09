@@ -1,5 +1,5 @@
 [user]
-    name = Lee Netherton
+	name = Lee Netherton
     email = "(none)"
 
 [color]
@@ -41,3 +41,8 @@
 
 [push]
         default = simple
+
+[diff]
+        tool = meld
+[merge]
+        tool = meld
