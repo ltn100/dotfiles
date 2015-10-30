@@ -219,3 +219,7 @@ set completeopt=menuone,menu,longest
 let g:vim_json_syntax_conceal = 0
 
 let g:airline_powerline_fonts = 1
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
