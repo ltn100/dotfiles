@@ -145,15 +145,20 @@ bind 'O' login off
 bind '}' history
 
 #some other term, don't remember which
-bindkey "[1;5C" next
-bindkey "[1;5D" prev
-bindkey "[C" next # for putty
-bindkey "[D" prev # for putty
+#bindkey "[1;5C" next
+#bindkey "[1;5D" prev
+#bindkey "[C" next # for putty
+#bindkey "[D" prev # for putty
+bindkey "[1;3C" next
+bindkey "[1;3D" prev
 
-bindkey "[1;5A" focus up
-bindkey "[1;5B" focus down
-bindkey "[A" focus up   # for putty
-bindkey "[B" focus down # for putty
+#bindkey "[1;5A" focus up
+#bindkey "[1;5B" focus down
+#bindkey "[A" focus up   # for putty
+#bindkey "[B" focus down # for putty
+bindkey "[1;3A" focus up
+bindkey "[1;3B" focus down
+
 
 bindkey "[6;5~" resize -1
 bindkey "[5;5~" resize +1

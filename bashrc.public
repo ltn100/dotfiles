@@ -100,7 +100,9 @@ alias su="su -l -c 'script -q /dev/null'"
 
 # Todo.txt
 alias t="todo.sh"
+alias tw="todo.sh -d ~/.todo/config_w"
 complete -F _todo t
+complete -F _todo tw
 
 # default editor
 export EDITOR=vim
