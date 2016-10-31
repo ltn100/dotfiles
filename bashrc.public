@@ -116,6 +116,8 @@ export PATH=~/.bin:$PATH
 # Add time to history
 export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
 
+export HISTFILESIZE=10000
+
 # HSTR config
 export HH_CONFIG=hicolor,rawhistory
 
