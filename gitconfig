@@ -1,6 +1,6 @@
 [user]
 	name = Lee Netherton
-    email = "(none)"
+	useConfigOnly = true
 
 [color]
         diff = auto
@@ -31,10 +31,18 @@
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [alias]
+        fetch-new = "!f() { if [ $(( $(date +%s) - $(stat -c %Y .git/FETCH_HEAD) )) -gt 1200 ]; then echo 'Fetching new commits...'; git fetch; fi }; f" # Only fetch every 20 mins
         co = checkout
         lg = log --graph --pretty=format:\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit
         rl = reflog --pretty=format:\"%Cred%h%Creset %C(auto)%gd%Creset %C(auto)%gs%C(reset) %C(green)(%cr)%C(reset) %C(bold blue)<%an>%Creset\" --abbrev-commit
         sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)\" --abbrev-commit
+        tags = !git fetch-new && git tag -l --format='%(taggerdate:short) -> %(tag)' --sort=taggerdate && :
+        catchup = "!f(){ echo -n \"reset \\033[0;33m$(git symbolic-ref -q --short HEAD)\\033[0m to \\033[0;33m$(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD))\\033[0m? (Y/n) \"; read -r ans; if [ \"$ans\" = \"y\" -o \"$ans\" = \"Y\" -o -z \"$ans\" ]; then git fetch; git reset --hard $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)); else echo \"catchup aborted\"; fi }; f"
+        stat = status --untracked-files=no
+        rb = !git pull && git rebase origin/develop && git push -f && :
+        b = !git fetch-new && git checkout -b feature/LN/$1 origin/develop --no-track && :
+        di = "!f() { git difftool -D $1^..$1; }; f"
+        dif = "!f() { base=$1; if [ $base == "" ]; then base=origin/develop; fi; git fetch-new; git difftool -D $(git merge-base HEAD $base); }; f"
 
 [giggle]
         compact-mode = false

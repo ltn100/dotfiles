@@ -98,9 +98,11 @@ alias benice="nice -n20 ionice -c3"
 # Fix issue with screen not working after su
 alias su="su -l -c 'script -q /dev/null'"
 
+alias fu='eval $(thefuck $(fc -ln -1))'
+
 # Todo.txt
 alias t="todo.sh"
-alias tw="todo.sh -d ~/.todo/config_w"
+alias tw="todo.sh ls @work"
 complete -F _todo t
 complete -F _todo tw
 
@@ -108,7 +110,7 @@ complete -F _todo tw
 export EDITOR=vim
 
 # highlight grep
-export GREP_OPTIONS="--exclude=tags --exclude=*~ --colour=auto"
+alias grep="grep --exclude=tags --exclude=*~ --colour=auto"
 
 # Add user bin to path
 export PATH=~/.bin:$PATH
@@ -116,7 +118,7 @@ export PATH=~/.bin:$PATH
 # Add time to history
 export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
 
-export HISTFILESIZE=10000
+export HISTFILESIZE=100000
 
 # HSTR config
 export HH_CONFIG=hicolor,rawhistory
