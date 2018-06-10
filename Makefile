@@ -34,6 +34,7 @@ LNK_FILES += irssi
 LNK_FILES += snownews
 LNK_FILES += todo
 LNK_FILES += bin
+LNK_FILES += config/terminator
 
 # Files to copy
 CP_FILES += bashrc.private
@@ -83,7 +84,7 @@ install: all bashrc $(DEST_DIR)/$(DOT_CP_FILES)
 			cp -f $(DEST_DIR)/$${dotfile}{,~}; \
 			cp -id $${dotfile} $(DEST_DIR); \
 		else \
-			cp -d $${dotfile} $(DEST_DIR); \
+			cp -d $${dotfile} $(DEST_DIR)/$${dotfile}; \
 		fi ; \
 	done
 
