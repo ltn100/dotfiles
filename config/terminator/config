@@ -1,7 +1,7 @@
 [global_config]
   dbus = True
-  enabled_plugins = SSHMenu, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  handle_size = 2
+  enabled_plugins = LaunchpadCodeURLHandler, LaunchpadBugURLHandler, TerminalShot, OpenAnyFile, APTURLHandler
+  handle_size = 3
   inactive_color_offset = 1.0
   title_inactive_bg_color = "#444444"
   title_inactive_fg_color = "#d6d6d6"
@@ -11,6 +11,7 @@
   title_transmit_fg_color = "#c4c4c4"
 [keybindings]
   zoom_in = <Ctrl>F11
+  paste = <Control>v
 [layouts]
   [[default]]
     [[[child1]]]

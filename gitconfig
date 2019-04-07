@@ -41,8 +41,12 @@
         stat = status --untracked-files=no
         rb = !git pull && git rebase origin/develop && git push -f && :
         b = !git fetch-new && git checkout -b feature/LN/$1 origin/develop --no-track && :
-        di = "!f() { git difftool -D $1^..$1; }; f"
-        dif = "!f() { base=$1; if [ $base == "" ]; then base=origin/develop; fi; git fetch-new; git difftool -D $(git merge-base HEAD $base); }; f"
+        diff-commit = "!f() { git difftool -d $1^..$1; }; f"
+        diff-common-ancestor = "!f() { base=$1; if [ $base == "" ]; then base=origin/develop; fi; git fetch-new; git difftool -d $(git merge-base HEAD $base); }; f"
+        diff-size-common-ancestor= "!f() { base=$1; if [ $base == "" ]; then base=origin/develop; fi; git fetch-new; curl -s https://gist.githubusercontent.com/cschell/9386715/raw/43996adb0f785a5afc17358be7a43ff7ee973215/git-file-size-diff | bash -s $(git merge-base HEAD $base)..HEAD; }; f"
+        diff-size = "!f() { curl -s https://gist.githubusercontent.com/cschell/9386715/raw/43996adb0f785a5afc17358be7a43ff7ee973215/git-file-size-diff | bash -s $1; }; f"
+        large-files = "!git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | cut -c 1-12,41- | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest | tail -n100"
+        branch-status = "!git for-each-ref --format=\"%(refname:short) %(upstream:short)\" refs/heads | while read local remote; do remote=origin/develop; git rev-list --left-right ${local}...${remote} -- 2>/dev/null >/tmp/git_upstream_status_delta || continue; LEFT_AHEAD=$(grep -c '^<' /tmp/git_upstream_status_delta); RIGHT_AHEAD=$(grep -c '^>' /tmp/git_upstream_status_delta); echo \"$local (ahead $LEFT_AHEAD) | (behind $RIGHT_AHEAD) $remote\"; done"
 
 [giggle]
         compact-mode = false
@@ -60,3 +64,4 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process

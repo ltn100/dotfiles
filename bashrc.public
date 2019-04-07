@@ -115,10 +115,11 @@ alias grep="grep --exclude=tags --exclude=*~ --colour=auto"
 # Add user bin to path
 export PATH=~/.bin:$PATH
 
-# Add time to history
-export HISTTIMEFORMAT="%d/%m/%y - %H:%M:%S "
+export HISTFILESIZE=10000
+export HISTSIZE=20000
+export HISTCONTROL=ignoredups:erasedups
+export HISTTIMEFORMAT="[$(tput setaf 6)%F %T$(tput sgr0)]: " # colorful date
 
-export HISTFILESIZE=100000
 
 # HSTR config
 export HH_CONFIG=hicolor,rawhistory
