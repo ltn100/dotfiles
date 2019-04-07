@@ -2,6 +2,12 @@
 export _HOSTCOLOUR="W"
 prompt
 
+prompty=$(which prompty)
+if [ -x "${prompty}" ]
+then
+    export PS1="\$(${prompty} \$?)"
+fi
+
 # Adjustments to path
 #export PATH=~/bin:$PATH
 
