@@ -23,6 +23,12 @@ fi
 # Server ssh
 #alias tssh="ssh -L 9999:localhost:80 user@server.com -t 'screen -D -RR'; clear"
 
+aws_completer=$(which aws_completer)
+if [ -x "${aws_completer}" ]
+then
+    complete -C ${aws_completer} aws
+fi
+
 tty -s; ISHELL=$?
 if [ $ISHELL ]
 then
