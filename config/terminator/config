@@ -1,5 +1,4 @@
 [global_config]
-  dbus = True
   enabled_plugins = LaunchpadCodeURLHandler, LaunchpadBugURLHandler, TerminalShot, OpenAnyFile, APTURLHandler
   handle_size = 3
   inactive_color_offset = 1.0
@@ -10,8 +9,8 @@
   title_transmit_bg_color = "#653939"
   title_transmit_fg_color = "#c4c4c4"
 [keybindings]
-  zoom_in = <Ctrl>F11
   paste = <Control>v
+  zoom_in = <Ctrl>F11
 [layouts]
   [[default]]
     [[[child1]]]
@@ -71,9 +70,8 @@
 [profiles]
   [[default]]
     background_darkness = 0.72
-    background_image = /home/ltn100/.config/terminator/main.jpg
-    background_type = image
-    font = Monospace 12
+    cursor_color = "#aaaaaa"
+    font = Ubuntu Mono 13
     scroll_background = False
     scrollback_lines = 50000
     use_system_font = False

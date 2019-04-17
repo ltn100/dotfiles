@@ -35,6 +35,7 @@ LNK_FILES += snownews
 LNK_FILES += todo
 LNK_FILES += bin
 LNK_FILES += config/terminator
+LNK_FILES += prompty
 
 # Files to copy
 CP_FILES += bashrc.private
