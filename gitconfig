@@ -47,6 +47,7 @@
         diff-size = "!f() { curl -s https://gist.githubusercontent.com/cschell/9386715/raw/43996adb0f785a5afc17358be7a43ff7ee973215/git-file-size-diff | bash -s $1; }; f"
         large-files = "!git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | cut -c 1-12,41- | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest | tail -n100"
         branch-status = "!git for-each-ref --format=\"%(refname:short) %(upstream:short)\" refs/heads | while read local remote; do remote=origin/develop; git rev-list --left-right ${local}...${remote} -- 2>/dev/null >/tmp/git_upstream_status_delta || continue; LEFT_AHEAD=$(grep -c '^<' /tmp/git_upstream_status_delta); RIGHT_AHEAD=$(grep -c '^>' /tmp/git_upstream_status_delta); echo \"$local (ahead $LEFT_AHEAD) | (behind $RIGHT_AHEAD) $remote\"; done"
+        branch-clean = "!f() { git fetch --prune; git branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d 2>/dev/null; git remote prune origin; }; f"
 
 [giggle]
         compact-mode = false
