@@ -12,7 +12,7 @@ select_branch() {
     # Set the prompt string
     PS3="--> Select a branch? "
     # first branch is always "master"
-    branches=("develop master $(git branch --sort=-committerdate | sed -e 's/*//' -e 's/(no branch)//' -e 's/master//' -e 's/develop//' | head -n 10)")
+    branches=("develop master $(git branch --sort=-committerdate | sed -e 's/*//' -e 's/(no branch)//' -e 's/^[[:space:]]*master//' -e 's/^[[:space:]]*develop//' | head -n 10)")
     select selected in $branches; do
         if [ "$selected" == "quit" -o "$selected" == "q" -o "$selected" == "" ]; then
             exit 1

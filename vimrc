@@ -6,6 +6,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+inoremap jk <ESC>
+
 set showtabline=2
 
 set tabstop=4       " numbers of spaces of tab character
