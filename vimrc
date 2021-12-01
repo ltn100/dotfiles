@@ -45,6 +45,8 @@ set t_Co=256
 " Colour scheme
 colorscheme wombat
 
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=#081C23
 
 
 set novisualbell    " turn off visual bell
