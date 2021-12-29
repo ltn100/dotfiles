@@ -1,0 +1,19 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux.conf
+    ~/.bin:
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.bashrc.public:
+    ~/.bashrc.private:
+    ~/.gitconfig:
+    ~/.config/nvim: nvim
+    ~/.config/terminator: terminator
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
