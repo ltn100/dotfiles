@@ -38,6 +38,7 @@ require "plugins"
 require "wombat"
 require "lsp"
 require "nvim-cmp"
+require "treesitter"
 
 -- Automatically install vim-plug
 --let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'

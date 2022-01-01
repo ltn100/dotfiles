@@ -37,6 +37,13 @@ return packer.startup(function()
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"    -- source for LSP
 
+  -- treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
+
   use "jeffreyiacono/vim-colors-wombat"
 
   if packer_bootstrap then
