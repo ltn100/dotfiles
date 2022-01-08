@@ -1,25 +1,28 @@
 local packer_startup = function(use)
 
-  use "wbthomason/packer.nvim" -- packer manages itself
+    use "wbthomason/packer.nvim" -- packer manages itself
 
-  -- lsp
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+    -- lsp
+    use "neovim/nvim-lspconfig"
+    use {
+        "williamboman/nvim-lsp-installer",
+        run = ":LspInstall pyright sumneko_lua",
+    }
 
-  -- cmp
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"    -- source for LSP
+    -- cmp
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-nvim-lsp"    -- source for LSP
 
-  -- treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "p00f/nvim-ts-rainbow"
-  use "tpope/vim-commentary"
-  use "akinsho/toggleterm.nvim"
+    -- treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    }
+    use "p00f/nvim-ts-rainbow"
+    use "tpope/vim-commentary"
+    use "akinsho/toggleterm.nvim"
 
-  use "jeffreyiacono/vim-colors-wombat"
+    use "jeffreyiacono/vim-colors-wombat"
 
 end
 
@@ -27,6 +30,7 @@ end
 -- Automatically install packer
 local data_path = vim.fn.stdpath "data"
 local install_path = data_path .. "/site/pack/packer/start/packer.nvim"
+local packer_bootstrap
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   packer_bootstrap = vim.fn.system {
     "git", "clone",
@@ -38,6 +42,9 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.notify "Packer installed. Close and reopen Neovim..."
 end
 
+local packer = require("_utils").safe_require("packer")
+if not packer then return end
+
 -- Autocommand that reloads neovim whenever you save the packer.lua file
 vim.cmd [[
   augroup packer_user_config
@@ -46,13 +53,8 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
 
-packer.startup(function()
+packer.startup(function(use)
     packer_startup(use)
     if packer_bootstrap then
         packer.sync()
