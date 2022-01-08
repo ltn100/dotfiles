@@ -1,18 +1,18 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-  return
-end
+-------------------------------------------------------------------------------
+-- nvim-cmp
+-- https://github.com/hrsh7th/nvim-cmp
+-------------------------------------------------------------------------------
+local module = require("_utils").safe_require("nvim-lsp-installer")
+if not module then return end
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-  return
-end
+local cmp_lsp = require("_utils").safe_require("cmp_nvim_lsp")
+if not cmp_lsp then return end
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {
-        capabilities = cmp_nvim_lsp.update_capabilities(
-            vim.lsp.protocol.make_client_capabilities()
-        )
-    }
-    server:setup(opts)
+module.on_server_ready(function(server)
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = cmp_lsp.update_capabilities(capabilities)
+
+    server:setup({
+        capabilities = capabilities
+    })
 end)

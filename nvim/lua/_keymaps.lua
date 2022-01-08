@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------
 -- Key Maps
 ----------------------------------------------------------------------------
-local function keymap(mode, lhs, rhs)
-    vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap=true, silent=true})
-end
+utils = require "_utils"
+keymap = utils.keymap
+
 vim.g.mapleader = "<space>"
 
 -- ctrl-c in insert mode behaves same as esc

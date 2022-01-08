@@ -1,10 +1,12 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
-    return
-end
+-------------------------------------------------------------------------------
+-- nvim-cmp
+-- https://github.com/hrsh7th/nvim-cmp
+-------------------------------------------------------------------------------
+local module = require("_utils").safe_require("cmp")
+if not module then return end
 
-cmp.setup {
-    sources = cmp.config.sources({
-      { name = "nvim_lsp" },
+module.setup {
+    sources = module.config.sources({
+        { name = "nvim_lsp" },
     })
 }

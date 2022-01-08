@@ -1,3 +1,7 @@
+-------------------------------------------------------------------------------
+-- Wombat colour scheme
+-- https://github.com/sheerun/vim-wombat-scheme
+-------------------------------------------------------------------------------
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 

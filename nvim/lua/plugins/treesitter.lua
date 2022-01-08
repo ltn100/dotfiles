@@ -1,9 +1,11 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
+-------------------------------------------------------------------------------
+-- Treesitter
+-- https://github.com/nvim-treesitter/nvim-treesitter
+-------------------------------------------------------------------------------
+local module = require("_utils").safe_require("nvim-treesitter.configs")
+if not module then return end
 
-configs.setup {
+module.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
