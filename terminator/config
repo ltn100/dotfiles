@@ -10,7 +10,6 @@
   title_transmit_fg_color = "#c4c4c4"
 [keybindings]
   paste = <Control>v
-  zoom_in = <Ctrl>F11
 [layouts]
   [[default]]
     [[[child1]]]
@@ -20,53 +19,7 @@
     [[[window0]]]
       parent = ""
       type = Window
-  [[4chan]]
-    [[[child0]]]
-      order = 0
-      parent = ""
-      position = 0:24
-      size = 1920, 1056
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 544
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 960
-      type = HPaned
-    [[[child5]]]
-      order = 1
-      parent = child1
-      position = 960
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = default
-      type = Terminal
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = default
-      type = Terminal
-    [[[terminal6]]]
-      order = 0
-      parent = child5
-      profile = default
-      type = Terminal
-    [[[terminal7]]]
-      order = 1
-      parent = child5
-      profile = default
-      type = Terminal
 [plugins]
-  [[SSHMenu]]
-    [[[filer02]]]
-      command = ssh filer02.cortexica.ichosted.org.uk
-      name = filer02
 [profiles]
   [[default]]
     background_darkness = 0.72

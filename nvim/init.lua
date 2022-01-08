@@ -35,10 +35,11 @@ keymap("v", ">", ">gv")
 -- Plugins
 ----------------------------------------------------------------------------
 require "plugins"
-require "wombat"
-require "lsp"
-require "nvim-cmp"
-require "treesitter"
+require "plugins.wombat"
+require "plugins.lsp"
+require "plugins.cmp"
+require "plugins.treesitter"
+require "plugins.toggleterm"
 
 -- Automatically install vim-plug
 --let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'

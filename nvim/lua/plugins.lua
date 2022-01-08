@@ -43,6 +43,8 @@ return packer.startup(function()
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
+  use "tpope/vim-commentary"
+  use "akinsho/toggleterm.nvim"
 
   use "jeffreyiacono/vim-colors-wombat"
 

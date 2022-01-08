@@ -100,6 +100,11 @@ alias su="su -l -c 'script -q /dev/null'"
 
 alias fu='eval $(thefuck $(fc -ln -1))'
 
+if command -v "nvim" &> /dev/null
+then
+    alias vim='nvim'
+fi
+
 # Todo.txt
 alias t="todo.sh"
 alias tw="todo.sh ls @work"
