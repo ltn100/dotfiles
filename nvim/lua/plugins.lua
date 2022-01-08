@@ -26,7 +26,7 @@ if not status_ok then
   return
 end
 
-return packer.startup(function()
+packer.startup(function()
   use "wbthomason/packer.nvim" -- packer manages itself
 
   -- lsp
@@ -52,3 +52,10 @@ return packer.startup(function()
     packer.sync()
   end
 end)
+
+-- Setup all plugins
+require "plugins.wombat"
+require "plugins.lsp"
+require "plugins.cmp"
+require "plugins.treesitter"
+require "plugins.toggleterm"
