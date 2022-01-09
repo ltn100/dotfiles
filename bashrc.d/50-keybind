@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Bash history search
+bind '"\e[1;5A": history-search-backward'
+bind '"\e[1;5B": history-search-forward'
+
+bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'

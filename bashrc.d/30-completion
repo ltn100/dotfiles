@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# aws completion
+if [ -f /usr/bin/aws_completer ]; then
+    complete -C /usr/bin/aws_completer aws
+fi

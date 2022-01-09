@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# ls colours
+alias ls="ls --color -Fsh"
+
+# less colours
+alias less="less -R"
+
+# 256 colour tmux
+alias tmux="tmux -2"
+
+# Forward X over SSH
+alias ssh="ssh -X -Y"
+
+# Nice function
+alias benice="nice -n20 ionice -c3"
+
+# Fix issue with screen not working after su
+alias su="su -l -c 'script -q /dev/null'"
+
+alias fu='eval $(thefuck $(fc -ln -1))'
+
+if command -v "nvim" &> /dev/null
+then
+    alias vim='nvim'
+fi
+
+# highlight grep
+alias grep="grep --exclude=tags --exclude=*~ --colour=auto"
