@@ -1,5 +1,10 @@
 
-# Source custom bash profile
-if [ -f ~/.bashrc.public ]; then
-    source ~/.bashrc.public
+# Source custom bashrc files
+if [ -d "$HOME/.bashrc.d" ]; then
+    for i in $HOME/.bashrc.d/*; do
+        if [ -r $i ]; then
+            . $i
+        fi
+    done
+    unset i
 fi

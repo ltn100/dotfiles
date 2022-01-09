@@ -1,0 +1,8 @@
+#!/bin/bash
+
+tty -s; ISHELL=$?
+if [ $ISHELL ]
+then
+    ## Interactive shell.
+    : # Any printing to the console should be done here.
+fi

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# default editor
+export EDITOR=vim

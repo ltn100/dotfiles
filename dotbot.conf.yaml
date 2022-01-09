@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux.conf
+    ~/.local/bin: bin
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.bash_profile:
+    ~/.bash_profile.d:
+    ~/.bashrc.d:
+    ~/.gitconfig:
+    ~/.config/nvim: nvim
+    ~/.config/terminator: terminator
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    description: Patch .bashrc file
+    command: |
+      if fgrep -q '.bashrc.d' ${HOME}/.bashrc
+      then
+          echo "Bash profile already added."
+      else
+          cat bashrc.include >> ${HOME}/.bashrc
+          echo "Bash profile source added."
+      fi
+    stdout: true
+    quiet: true
+

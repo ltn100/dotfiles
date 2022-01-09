@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Prompty
+if command -v prompty 1>/dev/null
+then
+    export PS1="\$(prompty \$?)"
+fi
