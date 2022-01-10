@@ -18,6 +18,13 @@ local packer_startup = function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+
+    -- nvim-tree
+    use "kyazdani42/nvim-tree.lua"
+
+    -- lualine
+    use "nvim-lualine/lualine.nvim"
+
     use "p00f/nvim-ts-rainbow"
     use "tpope/vim-commentary"
     use "akinsho/toggleterm.nvim"
@@ -26,7 +33,6 @@ local packer_startup = function(use)
     -- use "rcarriga/nvim-dap-ui"
 
     use "jeffreyiacono/vim-colors-wombat"
-    use "nvim-lualine/lualine.nvim"
 
 end
 

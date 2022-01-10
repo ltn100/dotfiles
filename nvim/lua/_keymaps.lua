@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------
 -- Key Maps
 ----------------------------------------------------------------------------
-utils = require "_utils"
-keymap = utils.keymap
+local utils = require("_utils")
+local keymap = utils.keymap
 
-vim.g.mapleader = "<space>"
+vim.g.mapleader = " "
 
 -- ctrl-c in insert mode behaves same as esc
 keymap("i", "<C-C>", "<Esc>")
