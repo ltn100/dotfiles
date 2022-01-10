@@ -10,7 +10,8 @@
   inactive_color_offset = 1.0
   enabled_plugins = LaunchpadCodeURLHandler, LaunchpadBugURLHandler, TerminalShot, OpenAnyFile, APTURLHandler
 [keybindings]
-  paste = <Control>v
+  copy = <Alt>c
+  paste = <Alt>v
 [profiles]
   [[default]]
     visible_bell = True
