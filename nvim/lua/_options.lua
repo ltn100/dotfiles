@@ -15,3 +15,4 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = ">-", trail = "~" })
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.mouse = "a"

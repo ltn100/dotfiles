@@ -9,8 +9,8 @@
     ~/.local/bin: bin
     ~/.vim: vim
     ~/.vimrc: vimrc
-    ~/.bash_profile:
-    ~/.bash_profile.d:
+    ~/.profile:
+    ~/.profile.d:
     ~/.bashrc.d:
     ~/.gitconfig:
     ~/.config/nvim: nvim

@@ -21,8 +21,12 @@ local packer_startup = function(use)
     use "p00f/nvim-ts-rainbow"
     use "tpope/vim-commentary"
     use "akinsho/toggleterm.nvim"
+    -- use "mfussenegger/nvim-dap"
+    -- use "mfussenegger/nvim-dap-python"
+    -- use "rcarriga/nvim-dap-ui"
 
     use "jeffreyiacono/vim-colors-wombat"
+    use "nvim-lualine/lualine.nvim"
 
 end
 

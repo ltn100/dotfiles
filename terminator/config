@@ -1,15 +1,26 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, LaunchpadBugURLHandler, TerminalShot, OpenAnyFile, APTURLHandler
   handle_size = 3
-  inactive_color_offset = 1.0
-  title_inactive_bg_color = "#444444"
-  title_inactive_fg_color = "#d6d6d6"
-  title_receive_bg_color = "#4f616e"
-  title_receive_fg_color = "#afafaf"
-  title_transmit_bg_color = "#653939"
+  window_state = maximise
   title_transmit_fg_color = "#c4c4c4"
+  title_transmit_bg_color = "#653939"
+  title_receive_fg_color = "#afafaf"
+  title_receive_bg_color = "#4f616e"
+  title_inactive_fg_color = "#d6d6d6"
+  title_inactive_bg_color = "#444444"
+  inactive_color_offset = 1.0
+  enabled_plugins = LaunchpadCodeURLHandler, LaunchpadBugURLHandler, TerminalShot, OpenAnyFile, APTURLHandler
 [keybindings]
   paste = <Control>v
+[profiles]
+  [[default]]
+    visible_bell = True
+    background_darkness = 0.72
+    cursor_color = "#aaaaaa"
+    font = Ubuntu Mono 13
+    scroll_background = False
+    scrollback_lines = 50000
+    word_chars = "-A-Za-z0-9,./?%_~"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -20,13 +31,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_darkness = 0.72
-    cursor_color = "#aaaaaa"
-    font = Ubuntu Mono 13
-    scroll_background = False
-    scrollback_lines = 50000
-    use_system_font = False
-    visible_bell = True
-    word_chars = "-A-Za-z0-9,./?%_~"

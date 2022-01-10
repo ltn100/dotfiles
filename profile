@@ -3,8 +3,8 @@
 # at all.
 
 # custom profile
-if [ -d "$HOME/.bash_profile.d" ]; then
-    for i in $HOME/.bash_profile.d/*; do
+if [ -d "$HOME/.profile.d" ]; then
+    for i in $HOME/.profile.d/*; do
         if [ -r $i ]; then
             . $i
         fi
