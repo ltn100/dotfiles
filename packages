@@ -23,14 +23,23 @@ lynx
 mc
 ncftp
 netcat
+net-tools
 nmap
 screen
 subversion
 tree
+terminator
 unrar
 vim
 vim-runtime
 zip
+
+# Window manager
+i3-gaps
+rofi
+feh
+xrandr
+autorandr
 
 # Services
 openssh-server
