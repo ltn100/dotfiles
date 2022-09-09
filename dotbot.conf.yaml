@@ -17,6 +17,7 @@
     ~/.config/terminator: terminator
     ~/.config/i3: i3
     ~/.config/i3status: i3status
+    ~/.xprofile:
     ~/.zprofile:
     ~/.zshrc:
 
