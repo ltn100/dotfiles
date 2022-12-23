@@ -34,23 +34,29 @@ local packer_startup = function(use)
 
     use "jeffreyiacono/vim-colors-wombat"
 
+    use "airblade/vim-gitgutter"
+
 end
 
 
 -- Automatically install packer
-local data_path = vim.fn.stdpath "data"
-local install_path = data_path .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system {
-    "git", "clone",
-    "--depth", "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  vim.cmd [[packadd packer.nvim]]
-  vim.notify "Packer installed. Close and reopen Neovim..."
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+      'git', 'clone',
+      '--depth', '1',
+      'https://github.com/wbthomason/packer.nvim',
+      install_path
+    })
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 local packer = require("_utils").safe_require("packer")
 if not packer then return end

@@ -10,7 +10,7 @@ if not cmp_lsp then return end
 
 module.on_server_ready(function(server)
     local opts = {
-        capabilities = cmp_lsp.update_capabilities(
+        capabilities = cmp_lsp.default_capabilities(
             vim.lsp.protocol.make_client_capabilities()
         )
     }
