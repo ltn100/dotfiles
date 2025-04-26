@@ -17,6 +17,7 @@
     ~/.config/tmux: tmux
     ~/.config/i3: i3
     ~/.config/i3status: i3status
+    ~/.config/oh_my_zsh: oh_my_zsh
     ~/.xprofile:
     ~/.zprofile:
     ~/.zshrc:
