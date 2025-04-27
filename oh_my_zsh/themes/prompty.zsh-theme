@@ -35,6 +35,12 @@ user() { echo -n "$(info1)%n%{$reset_color%}" }
 hostname() { echo -n "$(bright)%m%{$reset_color%}" }
 workingdir() { echo -n "$(info2)%~%{$reset_color%}" }
 
+_count_lines() {
+    count=0
+    while read -r line; do (( count++ )); done
+    echo ${count}
+}
+
 smiley() {
     echo -n "%(?."
     echo -n "%B$(green)\$:)%{$reset_color%}"
@@ -51,19 +57,19 @@ _git_revparse() {
 }
 git_staged() {
     git_status="${1}"
-    echo -n "${git_status}" | command grep '^[MADRC] ' | command wc -l
+    echo -n "${git_status}" | command grep '^[MADRC] ' | _count_lines
 }
 git_changed() {
     git_status="${1}"
-    echo -n "${git_status}" | command grep '^ [MD]' | command wc -l
+    echo -n "${git_status}" | command grep '^ [MD]' | _count_lines
 }
 git_unmerged() {
     git_status="${1}"
-    echo -n "${git_status}" | command grep '^DD\|^AU\|^UD\|^UA\|^DU\|^AA\|^UU' | command wc -l
+    echo -n "${git_status}" | command grep '^DD\|^AU\|^UD\|^UA\|^DU\|^AA\|^UU' | _count_lines
 }
 git_untracked() {
     git_status="${1}"
-    echo -n "${git_status}" | command grep '^[?][?]' | command wc -l
+    echo -n "${git_status}" | command grep '^[?][?]' | _count_lines
 }
 _parse_git_branch() {
     # Possible strings:
@@ -76,12 +82,10 @@ _parse_git_branch() {
     # - [behind 1]
     # - [ahead 1, behind 1]
     git_status="${1}"
-    echo -n "${git_status}" \
-        | command grep '^##' \
-        | head -n1 \
-        | sed -n 's@^## \([[:alnum:]_/ ()-]\+\)\(\.\.\.\([[:alnum:]_./-]\+\)\?\)\?\( \[\(ahead [[:digit:]]\+\(\, \+\)\?\)\?\(behind [[:digit:]]\+\)\?\]\)\?$@\1\n\3\n\5\n\7@p' \
-        | sed 's/^ahead \([[:digit:]]\+\).*$/\1/' \
-        | sed 's/^behind \([[:digit:]]\+\).*$/\1/'
+    echo "${git_status}" | command grep '^##' | head -n1 | command sed -n 's@^## \([[:alnum:]_/()-]*\).*@\1@p'
+    echo "${git_status}" | command grep '^##' | head -n1 | command sed -n 's@^## .*\.\.\.\([[:alnum:]_/()-]*\).*@\1@p'
+    echo "${git_status}" | command grep '^##' | head -n1 | command sed -n 's@^## .*\[.*ahead \([[:digit:]]*\).*@\1@p'
+    echo "${git_status}" | command grep '^##' | head -n1 | command sed -n 's@^## .*\[.*behind \([[:digit:]]*\).*@\1@p'
 }
 git_branch() {
     git_status="${1}"
@@ -115,7 +119,16 @@ git_last_fetched_mins() {
 
     echo $(( $(file_age ${fetch_file}) / 60 ))
 }
-file_age() { echo $(($(date +%s) - $(date +%s -r "${1}"))) }
+file_age() {
+    if [[ $OSTYPE == darwin* ]]
+    then
+        # OSX
+        echo $(($(date +%s) - $(stat -t %s -f %m -- "${1}")))
+    else
+        # Linux
+        echo $(($(date +%s) - $(date +%s -r "${1}")))
+    fi
+}
 wrapped_warning() {
     prefix=${1}
     value=${2}
@@ -170,13 +183,13 @@ git_status() {
 
     echo -n "$(dim3)[%{$reset_color%}"
 
-    echo -n "$(wrapped_warning "$(hourglass) " ${last_fetched_mins} 60)"
-    echo -n "$(wrapped_warning " $(downarrow)" ${behind} 0)"
+    echo -n $(wrapped_warning "$(hourglass) " ${last_fetched_mins} 60)
+    echo -n $(wrapped_warning " $(downarrow)" ${behind} 0)
     echo -n "$(dim3) ${hash}%{$reset_color%}"
-    echo -n "$(wrapped_warning " $(uparrow)" ${ahead} 0)"
-    echo -n "$(wrapped_warning " $(tick) " ${staged} 0)"
-    echo -n "$(wrapped_warning " $(pencil) " ${changed} 0)"
-    echo -n "$(wrapped_warning " ?" ${untracked} 0)"
+    echo -n $(wrapped_warning " $(uparrow)" ${ahead} 0)
+    echo -n $(wrapped_warning " $(tick) " ${staged} 0)
+    echo -n $(wrapped_warning " $(pencil) " ${changed} 0)
+    echo -n $(wrapped_warning " ?" ${untracked} 0)
 
     echo -n "$(dim3)]%{$reset_color%}"
 }
