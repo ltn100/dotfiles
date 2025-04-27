@@ -67,7 +67,7 @@ CASE_SENSITIVE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=/home/ltn100/.config/oh_my_zsh
+ZSH_CUSTOM=${HOME}/.config/oh_my_zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -110,11 +110,15 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 setopt PROMPT_SUBST
+unsetopt autocd
 # export DEFAULT_USER=lnethert
 
 #export PATH=~/Library/Python/3.7/bin:$PATH
 
-eval "$(pyenv init -)"
+if command -v pyenv 1>/dev/null 2>&1
+then
+    eval "$(pyenv init -)"
+fi
 
 #source ~/.bashrc
 

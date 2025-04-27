@@ -4,11 +4,15 @@
 
 - clean: ['~']
 
+- create:
+  - ~/.local
+  - ~/.config
+
 - link:
     ~/.local/bin: bin
     ~/.vim: vim
     ~/.vimrc: vimrc
-    ~/.profile:
+    #~/.profile:
     ~/.profile.d:
     ~/.bashrc.d:
     ~/.gitconfig:
@@ -33,6 +37,15 @@
       else
           cat bashrc.include >> ${HOME}/.bashrc
           echo "Bash profile source added."
+      fi
+    stdout: true
+    quiet: true
+  -
+    description: Install oh-my-zsh
+    command: |
+      if command -v zsh
+      then
+        CHSH='no' KEEP_ZSHRC='yes' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       fi
     stdout: true
     quiet: true
