@@ -28,5 +28,11 @@ return {
         vim.cmd [[ highlight CmpItemKindProperty guibg=NONE guifg=#D4D4D4 ]]
         vim.cmd [[ highlight CmpItemKindUnit guibg=NONE guifg=#D4D4D4 ]]
 
+        -- Gitgutter
+        vim.g.gitgutter_set_sign_backgrounds = 1
+        vim.cmd [[ highlight GitGutterAdd guifg=#009900 ]]
+        vim.cmd [[ highlight GitGutterChange guifg=#bbbb00 ]]
+        vim.cmd [[ highlight GitGutterDelete guifg=#ff2222 ]]
+
     end,
 }

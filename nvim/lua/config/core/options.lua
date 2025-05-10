@@ -18,3 +18,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.mouse = "a"
 vim.opt.updatetime = 100 --ms
+
+vim.g.mapleader = " "  -- needs to be loaded before lazy
