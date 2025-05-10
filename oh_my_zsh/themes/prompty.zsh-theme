@@ -43,9 +43,9 @@ _count_lines() {
 
 smiley() {
     echo -n "%(?."
-    echo -n "%B$(green)\$:)%{$reset_color%}"
+    echo -n "%B$(green)\$:)%{$reset_color%}%b"
     echo -n "."
-    echo -n "%B$(red)\$:(%{$reset_color%}"
+    echo -n "%B$(red)\$:(%{$reset_color%}%b"
     echo -n ")"
 }
 
