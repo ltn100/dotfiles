@@ -134,6 +134,11 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+if command -v nvim 1>/dev/null
+then
+    alias vim=nvim
+fi
+
 #for bash?
 #bind '"\C-p": history-search-backward'
 #bind '"\C-n": history-search-forward'
