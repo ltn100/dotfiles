@@ -41,11 +41,11 @@
     stdout: true
     quiet: true
   -
-    description: Install oh-my-zsh
+    description: Install antigen
     command: |
-      if command -v zsh
+      if [ ! -f antigen/antigen.zsh ]
       then
-        CHSH='no' KEEP_ZSHRC='yes' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        curl -L git.io/antigen > oh_my_zsh/antigen/antigen.zsh
       fi
     stdout: true
     quiet: true
