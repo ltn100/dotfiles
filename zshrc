@@ -1,17 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export SHELL=$(which zsh)
 
 CASE_SENSITIVE="true"
 
 
-source ~/.config/oh_my_zsh/antigen/antigen.zsh
-
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle zsh-users/zsh-autosuggestions
-antigen theme ltn100/prompty --branch=main
+# source ~/.config/oh_my_zsh/antigen/antigen.zsh
+source ~/.antidote/antidote.zsh 
+antidote load
 
 setopt PROMPT_SUBST
 unsetopt autocd
@@ -48,6 +44,4 @@ fi
 #for bash?
 #bind '"\C-p": history-search-backward'
 #bind '"\C-n": history-search-forward'
-
-antigen apply
 

@@ -25,6 +25,7 @@
     ~/.xprofile:
     ~/.zprofile:
     ~/.zshrc:
+    ~/.zsh_plugins.txt:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
@@ -41,11 +42,11 @@
     stdout: true
     quiet: true
   -
-    description: Install antigen
+    description: Install antidote
     command: |
-      if [ ! -f antigen/antigen.zsh ]
+      if [ ! -d ${ZDOTDIR:-~}/.antidote ]
       then
-        curl -L git.io/antigen > oh_my_zsh/antigen/antigen.zsh
+        git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
       fi
     stdout: true
     quiet: true
