@@ -1,0 +1,9 @@
+# vim: filetype=zsh
+
+getantidote/use-omz        # handle OMZ dependencies
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library
+ohmyzsh/ohmyzsh path:plugins/git
+
+zsh-users/zsh-autosuggestions
+ltn100/prompty branch:main
+
