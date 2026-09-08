@@ -57,6 +57,7 @@
 
 [push]
         default = simple
+	autoSetupRemote = true
 
 [diff]
         tool = meld
@@ -68,5 +69,5 @@
 	required = true
 	process = git-lfs filter-process
 [credential]
-	helper = !aws codecommit credential-helper $@
+	; helper = !aws codecommit credential-helper $@
 	UseHttpPath = true

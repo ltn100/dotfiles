@@ -24,8 +24,7 @@ fi
 alias grep="grep --exclude=tags --colour=auto"
 
 export EDITOR=vim
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+
 
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -41,7 +40,10 @@ then
     alias vim=nvim
 fi
 
-#for bash?
-#bind '"\C-p": history-search-backward'
-#bind '"\C-n": history-search-forward'
+
+eval "$(direnv hook zsh)"
+
+
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 

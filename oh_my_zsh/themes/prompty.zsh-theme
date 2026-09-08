@@ -123,10 +123,10 @@ file_age() {
     if [[ $OSTYPE == darwin* ]]
     then
         # OSX
-        echo $(($(date +%s) - $(stat -t %s -f %m -- "${1}")))
+        echo $(($(date +%s) - $(stat -t %s -f %m -- ${1})))
     else
         # Linux
-        echo $(($(date +%s) - $(date +%s -r "${1}")))
+        echo $(($(date +%s) - $(date +%s -r ${1})))
     fi
 }
 wrapped_warning() {
