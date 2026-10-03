@@ -27,6 +27,24 @@
     ~/.zprofile:
     ~/.zshrc:
     ~/.zsh_plugins.txt:
+    ~/.config/Code/User/settings.json:
+      path: vscode/settings.json
+      create: true
+      if: '[ "$(uname)" = "Linux" ]'
+
+    ~/Library/Application Support/Code/User/settings.json:
+      path: vscode/settings.json
+      create: true
+      if: '[ "$(uname)" = "Darwin" ]'
+    ~/.config/Code/User/keybindings.json:
+      path: vscode/keybindings.json
+      create: true
+      if: '[ "$(uname)" = "Linux" ]'
+
+    ~/Library/Application Support/Code/User/keybindings.json:
+      path: vscode/keybindings.json
+      create: true
+      if: '[ "$(uname)" = "Darwin" ]'
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
@@ -51,4 +69,8 @@
       fi
     stdout: true
     quiet: true
-
+  -
+    description: Installing VS Code extensions
+    command: 'cat vscode/extensions.txt | xargs -L 1 code --install-extension'
+    if: 'command -v code >/dev/null 2>&1'
+    stderr: true

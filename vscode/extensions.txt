@@ -1,0 +1,6 @@
+eamodio.gitlens
+gerane.theme-wombat
+mechatroner.rainbow-csv
+ms-python.python
+pkief.material-icon-theme
+vscodevim.vim
