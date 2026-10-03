@@ -19,6 +19,7 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSurroundingLines": 10,
     "editor.accessibilitySupport": "off",
+    "explorer.openEditors.visible": 0,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "files.associations": {
@@ -193,6 +194,7 @@
         "DockerEndpoint"
     ],
     "security.workspace.trust.untrustedFiles": "open",
+    "workbench.layoutControl.enabled": false,
     "debug.disassemblyView.showSourceCode": false,
     "codesnap.containerPadding": "1em",
     "codesnap.showLineNumbers": false,
@@ -206,6 +208,17 @@
     "containers.composeBuild": true,
     "containers.composeDetached": false,
     "python.terminal.activateEnvironment": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
@@ -217,6 +230,7 @@
         "scminput": false
     },
     "chat.viewSessions.orientation": "stacked",
+    "chat.titleBar.openInAgentsWindow.enabled": false,
     "gitlens.hovers.enabled": false,
     "gitlens.codeLens.enabled": false,
 }
