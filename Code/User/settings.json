@@ -3,6 +3,7 @@
     "workbench.layoutControl.enabled": false,
     "workbench.colorTheme": "Wombat",
     "workbench.iconTheme": "material-icon-theme",
+    // "keyboard.dispatch": "keyCode",
     "editor.renderWhitespace": "all",
     "editor.mouseWheelZoom": true,
     "editor.fontSize": 15,
