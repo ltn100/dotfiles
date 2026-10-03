@@ -4,22 +4,29 @@
 
 - clean: ['~']
 
+- create:
+  - ~/.local
+  - ~/.config
+
 - link:
-    ~/.tmux.conf: tmux.conf
     ~/.local/bin: bin
     ~/.vim: vim
     ~/.vimrc: vimrc
-    ~/.profile:
-    ~/.profile.d:
-    ~/.bashrc.d:
+    #~/.profile:
+    #~/.profile.d:
+    #~/.bashrc.d:
     ~/.gitconfig:
     ~/.config/nvim: nvim
     ~/.config/terminator: terminator
+    ~/.config/tmux: tmux
     ~/.config/i3: i3
     ~/.config/i3status: i3status
+    ~/.config/oh_my_zsh: oh_my_zsh
+    ~/.config/ghostty: ghostty
     ~/.xprofile:
     ~/.zprofile:
     ~/.zshrc:
+    ~/.zsh_plugins.txt:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
@@ -32,6 +39,15 @@
       else
           cat bashrc.include >> ${HOME}/.bashrc
           echo "Bash profile source added."
+      fi
+    stdout: true
+    quiet: true
+  -
+    description: Install antidote
+    command: |
+      if [ ! -d ${ZDOTDIR:-~}/.antidote ]
+      then
+        git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
       fi
     stdout: true
     quiet: true

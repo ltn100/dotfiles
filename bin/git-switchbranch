@@ -1,14 +1,26 @@
 #!/bin/bash
 
 usage() {
-	echo "usage: git switchbranch"
+    echo "usage: git switchbranch"
 }
 
 version() {
     echo "switchbranch v0.0.2"
 }
 
-select_branch() {
+
+get_branch_fzf() {
+    selected=$(\
+        git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads/ | \
+        fzf --preview 'git diff --color=always $(git merge-base origin/main {})..{}' \
+    )
+    if [ "$selected" == "" ]; then
+        exit 1
+    fi
+    echo "$selected"
+}
+
+get_branch_bash() {
     # Set the prompt string
     PS3="--> Select a branch? "
     # first branch is always "master"
@@ -17,9 +29,20 @@ select_branch() {
         if [ "$selected" == "quit" -o "$selected" == "q" -o "$selected" == "" ]; then
             exit 1
         fi
-        git checkout "$selected"
+        echo "$selected"
         exit 0
     done
+}
+
+select_branch() {
+    if command -v fzf &> /dev/null
+    then
+        branch=$(get_branch_fzf "$@")
+    else
+        branch=$(get_branch_bash "$@")
+    fi
+
+    git checkout "$branch"
 }
 
 main() {
