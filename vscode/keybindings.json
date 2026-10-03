@@ -1,0 +1,44 @@
+[
+    {
+        "key": "ctrl+.",
+        "command": "workbench.action.openSettingsJson",
+    },
+    {
+        "key": "ctrl+,",
+        "command": "workbench.action.openGlobalKeybindingsFile",
+    },
+    // {
+    //     "key": "ctrl+oem_8",
+    //     "command": "-workbench.action.terminal.toggleTerminal",
+    //     "when": "terminal.active"
+    // },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\u001b\r"
+        },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+oem_8",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+oem_8",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    // Vim keybindings for command palette
+    { "key": "ctrl+n", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
+    { "key": "ctrl+p", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+]
