@@ -1,0 +1,222 @@
+{
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.colorTheme": "Wombat",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderWhitespace": "all",
+    "editor.mouseWheelZoom": true,
+    "editor.fontSize": 15,
+    "editor.rulers": [
+        80,
+        88,
+    ],
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorSurroundingLines": 10,
+    "editor.accessibilitySupport": "off",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "files.associations": {
+        "MLproject": "yaml"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    "terminal.integrated.fontFamily": "'Source Code Pro for Powerline', 'Hack Nerd Font', 'monospace', 'PowerlineSymbols'",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": [
+                "-l"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": [
+                "-l"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen",
+        "-workbench.action.terminal.focusFind",
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.useModal": "off",
+    "workbench.settings.openDefaultSettings": false,
+    "workbench.colorCustomizations": {
+        "terminal.background": "#151515",
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "settingsSync.ignoredExtensions": [],
+    // Extension settings
+    "autoDocstring.docstringFormat": "sphinx",
+    "autoDocstring.startOnNewLine": true,
+    "cSpell.allowCompoundWords": true,
+    "cSpell.language": "en-GB",
+    "cSpell.userWords": [
+        "conda",
+        "cusip",
+        "cusips",
+        "debugpy",
+        "isnan",
+        "kaggle",
+        "mlflow",
+        "numpy",
+        "pyplot",
+        "pytest",
+        "sklearn"
+    ],
+    "python.showStartPage": false,
+    "jupyter.debugJustMyCode": false,
+    "python.analysis.completeFunctionParens": true,
+    "python.venvPath": "~/.local/share/virtualenvs",
+    "python.languageServer": "Pylance",
+    "python.autoComplete.addBrackets": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pycodestyleArgs": [
+        "--max-line-length=120"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [],
+    "docker.dockerComposeDetached": false,
+    "docker.dockerComposeBuild": true,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.cmakePath": "/usr/bin/cmake",
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    // "vim.statusBarColorControl": true,
+    // "vim.statusBarColors.normal": [
+    //     "#007ACC"
+    // ], // blue
+    // "vim.statusBarColors.insert": [
+    //     "#CC5200"
+    // ], // yellow
+    // "vim.statusBarColors.visual": [
+    //     "#44A10C"
+    // ], // green
+    // "vim.statusBarColors.visualline": [
+    //     "#44A10C"
+    // ], // green
+    // "vim.statusBarColors.visualblock": [
+    //     "#44A10C"
+    // ], // green
+    // "vim.statusBarColors.searchinprogressmode": [
+    //     "#5200CC"
+    // ], // purple
+    //"vim.insertModeKeyBindings": [
+    //    {
+    //        "before": ["j", "k"],
+    //        "after": ["<Esc>"]
+    //    }
+    //],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "workbench.view.search"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-b>": false, // Explorer close
+        "<C-l>": false, // For dendron
+    },
+    "vim.showMarksInGutter": true,
+    "vim.hlsearch": true,
+    "python.analysis.reportExtraTelemetry": false,
+    "redhat.telemetry.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "editor.experimental.treeSitterTelemetry": false,
+    // "isort.serverEnabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "docker.contexts.label": "Name",
+    "docker.contexts.description": [
+        "DockerEndpoint"
+    ],
+    "security.workspace.trust.untrustedFiles": "open",
+    "debug.disassemblyView.showSourceCode": false,
+    "codesnap.containerPadding": "1em",
+    "codesnap.showLineNumbers": false,
+    "codesnap.backgroundColor": "#ffffff",
+    "codesnap.boxShadow": "rgba(0, 0, 0, 0.55) 0px 5px 5px",
+    "docker.extension.enableComposeLanguageServer": false,
+    "containers.contexts.description": [
+        "DockerEndpoint"
+    ],
+    "containers.contexts.label": "Name",
+    "containers.composeBuild": true,
+    "containers.composeDetached": false,
+    "python.terminal.activateEnvironment": false,
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "chat.sendElementsToChat.enabled": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "gitlens.hovers.enabled": false,
+    "gitlens.codeLens.enabled": false,
+}
