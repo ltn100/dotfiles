@@ -13,8 +13,8 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     #~/.profile:
-    ~/.profile.d:
-    ~/.bashrc.d:
+    #~/.profile.d:
+    #~/.bashrc.d:
     ~/.gitconfig:
     ~/.config/nvim: nvim
     ~/.config/terminator: terminator

@@ -33,6 +33,7 @@
 [alias]
         fetch-new = "!f() { if [ $(( $(date +%s) - $(stat -c %Y .git/FETCH_HEAD) )) -gt 1200 ]; then echo 'Fetching new commits...'; git fetch; fi }; f" # Only fetch every 20 mins
         co = checkout
+        wt = worktree
         lg = log --graph --date=format:'%Y-%m-%d %H:%M' --pretty=format:\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr - %ad) %C(bold blue)<%an, %ae>%Creset\" --abbrev-commit
         tg = log --no-walk --tags --date=format:'%Y-%m-%d %H:%M' --pretty=format:\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr - %ad) %C(bold blue)<%an, %ae>%Creset\" --abbrev-commit
         rl = reflog --pretty=format:\"%Cred%h%Creset %C(auto)%gd%Creset %C(auto)%gs%C(reset) %C(green)(%cr)%C(reset) %C(bold blue)<%an>%Creset\" --abbrev-commit
