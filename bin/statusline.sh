@@ -20,6 +20,7 @@ input=$(cat)
 
 # Extract fields using jq
 MODEL=$(echo "$input" | jq -r '.model.display_name // "unknown"')
+EFFORT=$(echo "$input" | jq -r '.effort.level // empty')
 PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
 COST=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
 DIR=$(echo "$input" | jq -r '.workspace.current_dir // "."')
@@ -57,4 +58,10 @@ else
     LOCATION="${CYAN}${CURRENT_DIR}${NC}"
 fi
 
-echo -e "${BLUE}${BOLD}${MODEL}${NC} ${DIM}|${NC} ${BAR} ${BAR_COLOR}${PCT}%${NC} ${DIM}|${NC} ${GREEN}${COST_FMT}${NC} ${DIM}|${NC} ${LOCATION}"
+if [[ -n "$EFFORT" ]]; then
+    MODEL_LABEL="${BLUE}${BOLD}${MODEL}${NC} ${DIM}(${EFFORT})${NC}"
+else
+    MODEL_LABEL="${BLUE}${BOLD}${MODEL}${NC}"
+fi
+
+echo -e "${MODEL_LABEL} ${DIM}|${NC} ${BAR} ${BAR_COLOR}${PCT}%${NC} ${DIM}|${NC} ${GREEN}${COST_FMT}${NC} ${DIM}|${NC} ${LOCATION}"
